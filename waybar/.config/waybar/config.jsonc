@@ -12,6 +12,7 @@
     "custom/voxtype",
     "custom/screenrecording-indicator",
     "idle_inhibitor",
+    "custom/weather",
     "custom/updatespacman",
     "custom/update",
     "tray",
@@ -23,10 +24,7 @@
   "modules-right": [  
     "backlight", 
     "network",
-    "bluetooth",
     "pulseaudio#output",
-    "pulseaudio#input",
-    "power-profiles-daemon",
     "memory",
     "cpu",
     "battery"
@@ -82,17 +80,6 @@
     "format-icons": {
       "activated": "󰛊",
       "deactivated": "󰾫"
-    }
-  },
-  "power-profiles-daemon": {
-    "format": "{icon}",
-    "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
-    "tooltip": true,
-    "format-icons": {
-      "default": "󰓅",
-      "performance": "󰓅",
-      "balanced": "󰾅",
-      "power-saver": "󰾆"
     }
   },
   "cpu": {
@@ -267,9 +254,18 @@
     "signal": 10,
     "return-type": "json"
   },
+  "custom/weather": {
+    "format": "{}",
+    "tooltip": true,
+    "interval": 3600,
+    "return-type": "json",
+    "exec": "python ~/.config/waybar/scripts/weather.py",
+    "on-click": "ghostty --class=com.luchho.weather -e sh -c 'curl wttr.in/Mendoza; read -n1'",
+    "on-click-right": "pkill -RTMIN+8 waybar"       // Refresh module on right click
+  },
   "tray": {
     "icon-size": 13,
     "spacing": 5,
     "show-passive-items": true
-  },
+  }
 }

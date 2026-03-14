@@ -11,12 +11,12 @@
   font-weight: normal;
 }
 #waybar > .horizontal {
-    padding-top: 1.5px;
+    padding-top: 1px;
 }
 
 window#waybar  {
   background-color: @background;
-  border-radius: 5px;
+  border-radius: 8px;
   color: @foreground;
   transition-property: background-color;
   transition-duration: .5s;
@@ -82,6 +82,7 @@ margin: 0 5.5px;
 #power-profiles-daemon,
 #clock,
 #mpris,
+#custom-weather,
 #custom-voxtype,
 #custom-voxtype.recording,
 #custom-voxtype.transcribing,
@@ -95,10 +96,6 @@ tooltip {
   padding: 2px;
 }
 
-#idle_inhibitor {
-  margin-left: 0;
-  margin-right: 0;
-}
 
 #tray {
     background-color: @transparent;
@@ -121,7 +118,7 @@ tooltip {
 #power-profiles-daemon.performance,
 #power-profiles-daemon.balanced,
 #power-profiles-daemon.power-saver {
-font-size: 16px;
+font-size: 12px;
 margin-right: 10px;
 }
 
@@ -151,12 +148,14 @@ tooltip label {
 
 #custom-screenrecording-indicator,
 #custom-idle-indicator,
+#custom-weather,
+#memory,
+#cpu,
 #custom-notification-silencing-indicator {
   min-width: 12px;
   margin-left: 5px;
   margin-right: 0;
-  font-size: 10px;
-  padding-bottom: 1px;
+  font-size: 0px;
 }
 
 #custom-screenrecording-indicator.active {
@@ -209,7 +208,27 @@ opacity: 0.7;
   animation-direction: alternate;
 }
 
+#custom-weather,
+#memory,
+#cpu,
+#clock{
+  min-width: 12px;
+  margin-left: 5px;
+  margin-right: 0;
+  font-size: 13px;
+  padding-bottom: 1px;
+}
+
+#custom-weather {
+    background-color: #282a36; /* Dark background */
+    color: #f8f8f2;            /* Light text */
+    padding: 0 5px;
+    border-radius: 10px;
+    margin: 2 0 2 5;
+}
 #custom-idle-indicator.active,
 #custom-notification-silencing-indicator.active {
   color: #a55555;
+  
 }
+
