@@ -1,36 +1,41 @@
 #!/usr/bin/env python
 import json
 import requests
-import sys
 
-CITY = "mdz" # Using full name is usually more reliable
+# Coordenadas exactas de Mendoza (Barrio Cívico/Centro)
+LAT = "-32.889"
+LON = "-68.844"
 
 def get_weather():
     try:
-        # Added a timeout so the bar doesn't hang
-        response = requests.get(f"https://wttr.in/{CITY}?format=j1", timeout=10)
-        response.raise_for_status() 
+        # Consultamos la API de Open-Meteo (devuelve JSON puro)
+        url = f"https://api.open-meteo.com/v1/forecast?latitude={LAT}&longitude={LON}&current_weather=true&timezone=America/Argentina/Mendoza"
+        response = requests.get(url, timeout=5)
+        response.raise_for_status()
         data = response.json()
+
+        curr = data['current_weather']
+        temp = curr['temperature']
         
-        curr = data['current_condition'][0]
-        temp = curr['temp_C']
-        desc = curr['weatherDesc'][0]['value']
-        
-        tooltip = f"<b>{desc} {temp}°C</b>\n"
-        # Only take the next 3 days to keep the tooltip clean
-        for day in data['weather'][:3]:
-            tooltip += f"\n{day['date']}: <span color='#ffb86c'>{day['maxtempC']}°C</span> / <span color='#8be9fd'>{day['mintempC']}°C</span>"
+        # Mapeo simple de códigos de clima (WMO codes)
+        codes = {
+            0: "☀️ Despejado", 1: "🌤 Principalmente despejado", 2: "⛅ Parcialmente nublado",
+            3: "☁️ Nublado", 45: "🌫 Niebla", 48: "🌫 Niebla", 51: "🌦 Drizzle",
+            61: "🌧 Lluvia", 71: "❄️ Nieve", 95: "⛈ Tormenta"
+        }
+        desc = codes.get(curr['weathercode'], "Despejado")
 
         out = {
-            "text": f"{temp}°C",
+            "text": f"{int(temp)}°C",
             "alt": desc,
-            "tooltip": tooltip,
+            "tooltip": f"<b>{desc} {temp}°C</b>\nUbicación: Mendoza, AR",
             "class": "weather"
         }
         print(json.dumps(out))
+
     except Exception as e:
-        # Outputting error to stderr helps debugging without breaking Waybar's JSON expectation
-        print(json.dumps({"text": "N/A", "tooltip": str(e)}))
+        # Si falla, Waybar mostrará "!" y el error en el tooltip
+        print(json.dumps({"text": "!", "tooltip": str(e)}))
 
 if __name__ == "__main__":
     get_weather()

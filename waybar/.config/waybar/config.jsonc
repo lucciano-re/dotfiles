@@ -27,7 +27,8 @@
     "pulseaudio#output",
     "memory",
     "cpu",
-    "battery"
+    "battery",
+    "custom/brightness"
     
   ],
   "hyprland/workspaces": {
@@ -139,6 +140,20 @@
     "spacing": 1,
     "on-click": "omarchy-launch-wifi"
   },
+
+  "custom/brightness": {
+    "format": "{}", 
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/brightness-control.sh get",
+    "on-scroll-up": "~/.config/waybar/scripts/brightness-control.sh up",
+    "on-scroll-down": "~/.config/waybar/scripts/brightness-control.sh down",
+    "on-click": "~/.config/waybar/scripts/brightness-control.sh left_click",
+    "on-click-right": "~/.config/waybar/scripts/brightness-control.sh right_click",
+    "signal": 8,
+    "interval": "once",
+    "tooltip": true
+  },
+
   "battery": {
     "format": "{capacity}% {icon}",
     "format-discharging": "{capacity}% {icon}",
