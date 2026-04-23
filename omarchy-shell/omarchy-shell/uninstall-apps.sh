@@ -1,25 +1,23 @@
 #!/bin/bash
 # uninstall-apps.sh
-# Removes Typora and Signal from the system
+# Removes Omarchy default presets and cleans the system
 
 set -e  # Exit on error
 
 echo "========================================="
-echo "  UNINSTALLING APPLICATIONS"
+echo "   UNINSTALLING OMARCHY PRESETS"
 echo "========================================="
 
-# --- Remove Specific Apps ---
-apps_to_remove=("typora" "signal-desktop")
-
-for app in "${apps_to_remove[@]}"; do
-    if pacman -Qi "$app" &> /dev/null; then
-        echo "Removing $app..."
-        sudo pacman -Rns "$app" --noconfirm
-        echo "✓ $app removed"
-    else
-        echo "⊘ $app is not installed"
-    fi
-done
+# --- Remove All Presets ---
+# This uses the built-in omarchy command to drop pre-installed apps
+if command -v omarchy-pkg-drop &> /dev/null; then
+    echo "Running Omarchy preset removal..."
+    # 'all' is the argument used by omarchy to target pre-installed groups
+    omarchy-pkg-drop all
+    echo "✓ Presets removed"
+else
+    echo "⊘ omarchy-pkg-drop command not found. Are you on an Omarchy system?"
+fi
 
 # --- Clean up orphaned dependencies ---
 # We store the list in a variable first to check if it's empty
@@ -41,3 +39,5 @@ echo "========================================="
 echo "  ✓ UNINSTALLATION COMPLETE"
 echo "========================================="
 echo ""
+
+

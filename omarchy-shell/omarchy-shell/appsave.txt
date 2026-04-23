@@ -1,0 +1,1 @@
+pacman -Qqent > pkglist.txt && pacman -Qqem > aurlist.txt

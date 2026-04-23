@@ -29,7 +29,6 @@ alias mv="mv -i"
 alias nv="nvim"
 alias df='df -h'
 alias free='free -m'
-alias kchrome="ps -e | rg chrom | awk '{print $1}' | xargs kill -9"
 alias ls="eza --icons"
 alias ll="eza -lh --icons --git"
 alias la="eza -lah --icons --git"

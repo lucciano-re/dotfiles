@@ -1,0 +1,14 @@
+aseprite
+harmonymusic
+onlyoffice-bin
+open-video-downloader
+opentabletdriver
+sioyek
+spicetify-bin
+stirling-pdf-bin
+toofan-bin
+tor-browser-bin
+veloren-nightly-bin
+zen-browser-bin
+zinjai
+zotero-bin
