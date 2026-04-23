@@ -23,11 +23,10 @@ function y() {
 }
 
 # rad's aliases
-
 alias diff="diff --color=auto"
 alias rm="rm -ri"
 alias mv="mv -i"
-alias vim="nvim"
+alias nv="nvim"
 alias df='df -h'
 alias free='free -m'
 alias kchrome="ps -e | rg chrom | awk '{print $1}' | xargs kill -9"
@@ -36,14 +35,16 @@ alias ll="eza -lh --icons --git"
 alias la="eza -lah --icons --git"
 alias cat="bat"
 alias -- -='cd -'
+alias mkd="mkdir -p"
+alias fuck="pacman -Rs"
+alias cl="clear"
 
 # Git Aliases
 alias gpush="git push"
 alias gpull="git pull --prune"
 alias gc="git commit -m"
 alias ga="git add ."
-alias gadog='PAGER="less -F -X" git adog'
-alias glog='PAGER="less -F -X" git log'
-alias dotfiles='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
+#????alias gadog='PAGER="less -F -X" git adog'
+#????alias glog='PAGER="less -F -X" git log'
 
 export PATH=$PATH:/home/luchho/.spicetify
