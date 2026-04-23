@@ -1,0 +1,22 @@
+text-color=#D4DABA
+border-color=#D4DABA
+background-color=#1c2d28
+width=420
+height=110
+padding=10
+border-size=2
+border-radius=8
+anchor=top-right
+outer-margin=20
+default-timeout=5000
+max-icon-size=32
+font=JetBrainsMono 14px
+
+[app-name=Spotify]
+invisible=1
+
+[mode=do-not-disturb]
+invisible=true
+
+[mode=do-not-disturb app-name=notify-send]
+invisible=false
