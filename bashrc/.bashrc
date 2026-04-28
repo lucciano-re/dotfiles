@@ -9,8 +9,10 @@ source ~/.local/share/omarchy/default/bash/rc
 #
 # Make an alias for invoking commands you use constantly
 # alias p='python'
-#
-alias arduino-ide='arduino-ide --no-sandbox --disable-gpu --ozone-platform=x11'
+
+# Put this in your .zshrc or .bashrc
+export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix --hidden --exclude .git'
+
 
 # Función para que Yazi cambie el directorio de la terminal al salir
 function y() {
@@ -35,9 +37,13 @@ alias la="eza -lah --icons --git"
 alias cat="bat"
 alias -- -='cd -'
 alias mkd="mkdir -p"
-alias fuck="pacman -Rs"
 alias cl="clear"
 alias cd="z"
+alias find="fd -H"
+alias fzf="fzf --preview 'bat --style=numbers --color=always {}'"
+alias fuck="pacman -Rs"
+
+alias arduino-ide='arduino-ide --no-sandbox --disable-gpu --ozone-platform=x11'
 
 # Git Aliases
 alias gpush="git push"
