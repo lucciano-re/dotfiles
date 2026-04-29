@@ -90,7 +90,7 @@
   },
     "memory": {
     "interval": 2,
-    "format": " {percentage}%",
+    "format": "",
     "on-click": "omarchy-launch-or-focus-tui btop"
   },
   "backlight": {
