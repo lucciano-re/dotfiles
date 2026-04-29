@@ -106,7 +106,7 @@
     ]
   },
   "clock": {
-    "format": " {:%H:%M %d/%m/%Y}",
+    "format": " {:%H:%M %A}",
     "format-alt": "{:L%d %B %Y}",
     "tooltip-format": "<span>{calendar}</span>",
     "calendar": {
