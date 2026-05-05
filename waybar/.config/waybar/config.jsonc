@@ -234,7 +234,8 @@
     "max-length": 40,
     "player-icons": {
       "default": "⏸",
-      "mpv": "🎵"
+      "mpv": "🎵",
+      "spotify": ""
     },
     "status-icons": {
       "paused": "󰋐"  

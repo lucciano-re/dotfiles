@@ -42,6 +42,8 @@ alias cd="z"
 alias find="fd -H"
 alias fzf="fzf --preview 'bat --style=numbers --color=always {}'"
 alias fuck="pacman -Rs"
+alias audio="alsamixer"
+alias nvbash="nv dotfiles/bashrc/.bashrc"
 
 alias arduino-ide='arduino-ide --no-sandbox --disable-gpu --ozone-platform=x11'
 
