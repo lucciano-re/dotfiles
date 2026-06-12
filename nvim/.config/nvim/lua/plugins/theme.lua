@@ -1,1 +1,0 @@
-/home/luchho/.config/omarchy/current/theme/neovim.lua
