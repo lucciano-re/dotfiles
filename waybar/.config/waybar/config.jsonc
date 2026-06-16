@@ -29,7 +29,6 @@
     "memory",
     "cpu",
     "battery",
-    "custom/brightness",
     "sway/notification-center"
   ],
   "hyprland/workspaces": {
