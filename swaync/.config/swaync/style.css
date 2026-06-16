@@ -1,0 +1,401 @@
+@import "colors.css";
+
+/* ==========================================================================
+   1. VARIABLES DE COLOR (CATPPUCCIN MOCHA)
+   ========================================================================== */
+:root {
+  /* Paleta Catppuccin Mocha Base */
+  --base: #1e1e2e;
+  --mantle: #181825;
+  --crust: #11111b;
+  --text: #cdd6f4;
+  --subtext0: #a6adc8;
+  --surface0: #313244;
+  --surface1: #45475a;
+  --surface2: #585b70;
+  
+  --blue: #89b4fa;
+  --red: #f38ba8;
+  --green: #a6e3a1;
+  --mauve: #cba6f7;
+
+  /* Variables principales (Mapeadas a Catppuccin) */
+  --accent: var(--blue);
+  --foreground: var(--text);
+  --background: var(--base);
+  --cursor: var(--text);
+  --selection_foreground: var(--base);
+  --selection_background: var(--blue);
+
+  /* Paleta Extendida (Mapeada a variaciones de Catppuccin para compatibilidad) */
+  --color0: var(--crust);
+  --color1: var(--red);
+  --color2: var(--green);
+  --color3: var(--subtext0);
+  --color4: var(--blue);
+  --color5: var(--mauve);
+  --color6: var(--surface2);
+  --color7: var(--text);
+  --color8: var(--surface1);
+  --color9: var(--red);
+  --color10: var(--green);
+  --color11: var(--surface2);
+  --color12: var(--blue);
+  --color13: var(--mauve);
+  --color14: var(--subtext0);
+  --color15: var(--text);
+}
+
+/* ==========================================================================
+   2. REGLAS GLOBALES
+   ========================================================================== */
+* {
+  font-size: 14px;
+  font-family: "JetBrainsMono Nerd Font";
+  transition: 100ms;
+  box-shadow: unset;
+}
+
+/* ==========================================================================
+   3. CENTRO DE CONTROL (CONTENEDOR PRINCIPAL)
+   ========================================================================== */
+.control-center {
+  border-radius: 1.705rem;
+  -gtk-outline-radius: 1.705rem;
+  border-top: 1px solid alpha(var(--color2), 0.25);
+  border-left: 1px solid alpha(var(--color2), 0.25);
+  border-right: 1px solid alpha(var(--accent), 0.15);
+  border-bottom: 1px solid alpha(var(--accent), 0.15);
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.45);
+  margin: 7px;
+  background-color: var(--background);
+  padding: 1.023rem;
+}
+
+.control-center trough {
+  border-radius: 9999px;
+  -gtk-outline-radius: 9999px;
+  min-width: 0.545rem;
+  background-color: transparent;
+}
+
+.control-center slider {
+  border-radius: 9999px;
+  -gtk-outline-radius: 9999px;
+  min-width: 0.273rem;
+  min-height: 2.045rem;
+  background-color: alpha(var(--color6), 0.31);
+}
+
+.control-center slider:hover {
+  background-color: alpha(var(--color6), 0.5);
+}
+
+.control-center slider:active {
+  background-color: var(--color5);
+}
+
+/* ==========================================================================
+   4. NOTIFICACIONES Y GRUPOS (LIMPIEZA DE BORDES Y FONDOS)
+   ========================================================================== */
+
+/* Limpiar todos los fondos de los envoltorios para evitar el doble marco */
+.notification-group, 
+.notification-group > box,
+.notification-row,
+.notification-background,
+.control-center .notification-row {
+  background: transparent;
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  margin: 0; 
+  border-radius: 12px;
+}
+
+/* Limpiar estados hover de los envoltorios */
+.notification-group:hover, 
+.notification-group > box:hover,
+.notification-row:hover,
+.notification-background:hover {
+  background: transparent ;
+  background-color: transparent ;
+  border: none ;
+  box-shadow: none ;
+}
+
+/* Estilo estricto de la TARJETA de la notificación */
+.notification {
+  background-color: var(--mantle) ;
+  border-radius: 12px;
+  border: 1px solid var(--surface0) ;
+  box-shadow: none ;
+  margin-top: 0.150rem;
+}
+
+/* Márgenes internos de las notificaciones */
+.control-center .notification-row .notification-background .notification,
+.control-center .notification-row .notification-background .notification .notification-content,
+.floating-notifications .notification-row .notification-background .notification,
+.floating-notifications.background .notification-background .notification .notification-content {
+  margin-bottom: unset;
+}
+
+.control-center .notification-row .notification-background .notification box,
+.control-center .notification-row .notification-background .notification widget,
+.control-center .notification-row .notification-background .notification .notification-content,
+.floating-notifications .notification-row .notification-background .notification box,
+.floating-notifications .notification-row .notification-background .notification widget,
+.floating-notifications.background .notification-background .notification .notification-content {
+  border: unset;
+  border-radius: 1.159rem;
+  -gtk-outline-radius: 1.159rem;
+}
+
+.floating-notifications.background .notification-background .notification .notification-content,
+.control-center .notification-background .notification .notification-content {
+  background-color: var(--mantle);
+  padding: 1rem;
+  padding-right: unset;
+  margin-right: unset;
+}
+
+/* Textos de las notificaciones */
+.control-center .notification-row .notification-background .notification.low .notification-content label,
+.control-center .notification-row .notification-background .notification.normal .notification-content label,
+.floating-notifications.background .notification-background .notification.low .notification-content label,
+.floating-notifications.background .notification-background .notification.normal .notification-content label {
+  color: var(--foreground);
+}
+
+.control-center .notification-row .notification-background .notification.low .notification-content .body,
+.control-center .notification-row .notification-background .notification.normal .notification-content .body,
+.floating-notifications.background .notification-background .notification.low .notification-content .body,
+.floating-notifications.background .notification-background .notification.normal .notification-content .body {
+  color: var(--color6);
+}
+
+.control-center .notification-row .notification-background .notification .notification-content .summary,
+.floating-notifications.background .notification-background .notification .notification-content .summary {
+  font-family: 'Gabarito', 'Lexend', sans-serif;
+  font-size: 0.9909rem;
+  font-weight: 500;
+}
+
+.control-center .notification-row .notification-background .notification .notification-content .time,
+.floating-notifications.background .notification-background .notification .notification-content .time {
+  font-family: 'Geist', 'AR One Sans', 'Inter', 'Roboto', 'Noto Sans', 'Ubuntu', sans-serif;
+  font-size: 0.8291rem;
+  font-weight: 500;
+  margin-right: 1rem;
+  padding-right: unset;
+}
+
+.control-center .notification-row .notification-background .notification .notification-content .body,
+.floating-notifications.background .notification-background .notification .notification-content .body {
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 0.8891rem;
+  font-weight: 400;
+  margin-top: 0.310rem;
+  padding-right: unset;
+  margin-right: unset;
+}
+
+/* Imágenes de notificaciones */
+.control-center .notification-row .notification-background .notification..notification-content image,
+.control-center .notification-row .notification-background .notification.normal .notification-content image,
+.floating-notifications.background .notification-background .notification.low .notification-content image,
+.floating-notifications.background .notification-background .notification.normal .notification-content image {
+  background-color: unset;
+  color: var(--color15);
+}
+
+/* Notificaciones Críticas */
+.control-center .notification-row .notification-background .notification.critical .notification-content,
+.floating-notifications.background .notification-background .notification.critical .notification-content {
+  background-color: var(--color1);
+}
+
+.control-center .notification-row .notification-background .notification.critical .notification-content image,
+.floating-notifications.background .notification-background .notification.critical .notification-content image {
+  background-color: unset;
+  color: var(--color1);
+}
+
+.control-center .notification-row .notification-background .notification.critical .notification-content label,
+.floating-notifications.background .notification-background .notification.critical .notification-content label {
+  color: var(--background);
+}
+
+/* Botón de cerrar notificación */
+.control-center .notification-row .close-button,
+.floating-notifications.background .close-button {
+  background-color: unset;
+  border-radius: 100%;
+  border: none;
+  box-shadow: none;
+  margin-right: 13px;
+  margin-top: 6px;
+  margin-bottom: unset;
+  padding-bottom: unset;
+  min-height: 20px;
+  min-width: 20px;
+  text-shadow: none;
+}
+
+.control-center .notification-row .close-button:hover,
+.floating-notifications.background .close-button:hover {
+  background-color: alpha(var(--accent), 0.25);
+}
+
+/* ==========================================================================
+   5. WIDGETS
+   ========================================================================== */
+
+/* Widget: Título */
+.widget-title {
+  padding: 0.341rem;
+  margin: unset;
+}
+
+.widget-title label {
+  font-family: 'Gabarito', 'Lexend', JetBrainsMono Nerd;
+  font-size: 1.364rem;
+  color: var(--foreground);
+  margin-left: 0.941rem;
+}
+
+.widget-title button {
+  border: unset;
+  background-color: unset;
+  border-radius: 1.159rem;
+  -gtk-outline-radius: 1.159rem;
+  padding: 0.141rem 0.141rem;
+  margin-right: 0.841rem;
+}
+
+.widget-title button label {
+  font-family: 'Gabarito', sans-serif;
+  font-size: 1.0409rem;
+  color: var(--foreground);
+  margin-right: 0.841rem;
+}
+
+.widget-title button:hover {
+  background-color: alpha(var(--color5), 0.25);
+}
+
+.widget-title button:active {
+  background-color: alpha(var(--color5), 1);
+}
+
+/* Widget: Cuadrícula de Botones (Corregido y Centrado) */
+.widget-buttons-grid {
+  background-image: none ;
+  background-color: transparent ;
+  border: none ;
+  box-shadow: none ;
+  margin: 0 auto ; 
+  padding: unset;
+}
+
+.widget-buttons-grid > flowbox {
+  background-image: none ;
+  background-color: transparent ;
+  halign: center ; 
+  padding: unset;
+}
+
+/* El contenedor oculto: Neutralizado (incluso el HOVER para evitar la caja fantasma) */
+.widget-buttons-grid > flowbox > flowboxchild,
+.widget-buttons-grid > flowbox > flowboxchild:hover {
+  background-image: none ;
+  background: transparent ;
+  background-color: transparent ;
+  padding: 0 ;
+  margin: 0 ;
+  border: none ;
+  box-shadow: none ;
+}
+
+/* Los botones reales */
+.widget-buttons-grid > flowbox > flowboxchild > button {
+  background-image: none ;
+  background-color: var(--surface0) ; 
+  border: none ;
+  box-shadow: none ;
+  border-radius: 9999px ;
+  margin: 5px ;
+  min-width: 5.522rem ;
+  min-height: 2.927rem ;
+  padding: unset;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button label {
+  font-family: "Materials Symbol Rounded";
+  font-size: 1.3027rem;
+  color: var(--foreground);
+}
+
+/* Hover correcto SÓLO en el botón interior */
+.widget-buttons-grid > flowbox > flowboxchild > button:hover {
+  background-color: var(--surface1);
+}
+
+/* 5. Estado activo (Fondo = Color de texto) */
+.widget-buttons-grid > flowbox > flowboxchild > button:checked {
+  background-image: none;
+  background-color: var(--foreground); /* El fondo ahora usa tu color principal claro */
+}
+
+/* Invierte el color del icono para que se vea bien sobre el nuevo fondo claro */
+.widget-buttons-grid > flowbox > flowboxchild > button:checked label {
+  color: var(--background); /* El icono toma el color oscuro del panel */
+}
+
+/* Widget: Volumen */
+.widget-volume {
+  background-color: var(--mantle);
+  padding: 8px;
+  margin: 8px;
+  border-radius: 1.0rem;
+  -gtk-outline-radius: 1.159rem;
+}
+
+.widget-volume trough {
+  border: unset;
+  background-color: var(--surface0);
+}
+
+.widget-volume trough slider {
+  color: unset;
+  background-color: var(--accent);
+  border-radius: 100%;
+  min-height: 1.25rem;
+}
+
+/* Widget: MPRIS (Reproductor) */
+.widget-mpris {
+  background-color: var(--mantle);
+  padding: 0px;
+  margin: 0px;
+  border-radius: 1.159rem;
+  -gtk-outline-radius: 1.159rem;
+}
+
+.widget-mpris-player {
+  padding: 0px;
+  margin: 0px;
+}
+
+.widget-mpris-title {
+  font-weight: bold;
+  font-size: 1.25rem;
+  color: var(--foreground);
+}
+
+.widget-mpris-subtitle {
+  font-size: 1.1rem;
+  color: var(--color3);
+}
