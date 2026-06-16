@@ -31,7 +31,7 @@ function y() {
 
 # rad's aliases
 alias diff="diff --color=auto"
-alias rm="rm -ri"
+alias del="rm -ri"
 alias mv="mv -i"
 alias nv="nvim"
 alias df='df -h'
@@ -52,6 +52,8 @@ alias nvbash="nv dotfiles/zshrc/.zshrc" # Updated this to point to zshrc
 alias se="rg -S -. -C 2"
 
 alias arduino-ide='arduino-ide --no-sandbox --disable-gpu --ozone-platform=x11'
+
+alias drives='lsblk'
 
 # Git Aliases
 alias gpush="git push"
