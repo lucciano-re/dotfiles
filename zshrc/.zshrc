@@ -67,3 +67,4 @@ eval "$(zoxide init zsh)"
 
 
 export PATH=$PATH:/home/lucho/.spicetify
+fastfetch
