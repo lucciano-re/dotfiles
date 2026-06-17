@@ -1,0 +1,59 @@
+#![enable(implicit_some)]
+#![enable(unwrap_newtypes)]
+#![enable(unwrap_variant_newtypes)]
+
+(
+    // MPD Connection
+    address: "127.0.0.1:6600",
+    password: None,
+    
+    // General UI Settings
+    volume_step: 5,
+    scrolloff: 2,
+    max_fps: 60,
+    wrap_navigation: true,
+    cache_dir: "~/.mpd/cache",
+    status_update_interval_ms: 1000,
+    enable_mouse: true,
+    enable_config_hot_reload: true,
+    
+    // Album Art Configuration (Configured for Kitty/WezTerm/Ghostty)
+    album_art: (
+        method: Kitty,
+        max_size_px: (width: 800, height: 800),
+        vertical_align: Center,
+        horizontal_align: Center,
+    ),
+    
+    // Optional: Cava Integration (Terminal Audio Visualizer)
+    // To use this, you'll need `cava` installed and an audio fifo set up in mpd.conf
+    cava: (
+        framerate: 60,
+        autosens: true,
+        sensitivity: 130,
+        input: (
+            method: Fifo,
+            source: "/tmp/mpd.fifo",
+            sample_rate: 44100,
+            channels: 2,
+            samble_bits: 16,
+        ),
+        smoothing: (
+            noise_reduction: 25,
+            monstercat: false,
+            waves: false,
+        ),
+    ),
+
+    // Basic Global Keybinds
+    keybinds: (
+        global: {
+            "q": Quit,
+            "~": ShowHelp,
+            "O": ShowOutputs,
+            "I": ShowCurrentSongInfo,
+            "<C-p>": ShowDecoders,
+            ":": CommandMode,
+        },
+    )
+)
