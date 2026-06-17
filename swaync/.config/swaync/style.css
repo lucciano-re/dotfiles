@@ -54,6 +54,7 @@
   font-family: "JetBrainsMono Nerd Font";
   transition: 100ms;
   box-shadow: unset;
+  border: none;
 }
 
 /* ==========================================================================
@@ -129,7 +130,7 @@
 .notification {
   background-color: var(--mantle) ;
   border-radius: 12px;
-  border: 1px solid var(--surface0) ;
+  border: none;
   box-shadow: none ;
   margin-top: 0.150rem;
 }
