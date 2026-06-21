@@ -129,7 +129,7 @@
 .notification {
   background-color: var(--mantle) ;
   border-radius: 12px;
-  border: 1px solid var(--surface0) ;
+  border: none;
   box-shadow: none ;
   margin-top: 0.150rem;
 }
@@ -339,8 +339,7 @@
 }
 
 /* Hover correcto SÓLO en el botón interior */
-.widget-buttons-grid > flowbox > flowboxchild > button:hover {
-  background-color: var(--surface1);
+.widget-buttons-grid > flowbox > flowboxchild > bunoneolor: var(--surface1);
 }
 
 /* 5. Estado activo (Fondo = Color de texto) */

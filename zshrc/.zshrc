@@ -12,8 +12,6 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.zsh/you-should-use/you-should-use.plugin.zsh
 
-eval "$(zoxide init zsh)"
-
 # Make an alias for invoking commands you use constantly
 # alias p='python'
 
@@ -29,31 +27,31 @@ function y() {
 	rm -f -- "$tmp"
 }
 
-# rad's aliases
-alias diff="diff --color=auto"
-alias del="rm -ri"
-alias mv="mv -i"
-alias nv="nvim"
-alias df='df -h'
-alias free='free -m'
-alias ls="eza --icons"
+# convenient aliases
+alias diff="diff --color=auto" #color diff default
+alias del="rm -ri" #recursive(child directories) interactive(confirmation)
+alias mv="mv -i" #interactive(confirm overwrite)
+alias nv="nvim" #shortcut
+alias df='df -h' #disc space human readable
+alias free='free -m' #ram
+alias ls="eza --icons" #change ls for high level (icons and colors) 
 alias ll="eza -lh --icons --git"
 alias la="eza -lah --icons --git"
-alias cat="bat"
-alias -- -='cd -'
-alias mkd="mkdir -p"
-alias cl="clear"
-alias cd="z"
-alias find="fd -H"
-alias fzf="fzf --preview 'bat --style=numbers --color=always {}'"
-alias fuck="sudo pacman -Rs"
-alias audio="alsamixer"
-alias nvbash="nv dotfiles/zshrc/.zshrc" # Updated this to point to zshrc
-alias se="rg -S -. -C 2"
+alias cat="bat" #change cat for more modern and advanced
+alias mkd="mkdir -p" #shortcut
+alias cl="clear" #shortcut
+alias cd="z" #change for feature rich and modern
+alias find="fd -H" #change for feature rich and modern
+alias fzf="fzf --preview 'bat --style=numbers --color=always {}'" #launch fuzzy finder
+alias fuck="sudo pacman -Rs" #uninstall
+alias install="sudo pacman -S"
+alias audio="alsamixer" #shortcut
+alias nvzsh="nv dotfiles/zshrc/.zshrc" # Updated this to point to zshrc
+alias se="rg -S -. -C 2"  #search whith rip grep
 
-alias arduino-ide='arduino-ide --no-sandbox --disable-gpu --ozone-platform=x11'
+alias drives='lsblk' #shortcut
 
-alias drives='lsblk'
+alias spotdl='spotify-dl -t 4' #default 4 parrallel downloads 
 
 # Git Aliases
 alias gpush="git push"
@@ -62,11 +60,9 @@ alias gc="git commit -m"
 alias ga="git add ."
 alias fixgit-to-ssh='git remote set-url origin git@github.com:$(git remote get-url origin | sed "s/.*github.com[\/:]//;s/\.git$//").git'
 
-export PATH=$PATH:/home/luchho/.spicetify
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 
-
-
 export PATH=$PATH:/home/lucho/.spicetify
+
 fastfetch

@@ -3,6 +3,7 @@
 #![enable(unwrap_variant_newtypes)]
 
 (
+theme: "theme",
     // MPD Connection
     address: "127.0.0.1:6600",
     password: None,
@@ -19,8 +20,8 @@
     
     // Album Art Configuration (Configured for Kitty/WezTerm/Ghostty)
     album_art: (
-        method: Kitty,
-        max_size_px: (width: 800, height: 800),
+        method: Block,
+        max_size_px: (width: 400, height: 400),
         vertical_align: Center,
         horizontal_align: Center,
     ),
@@ -32,11 +33,8 @@
         autosens: true,
         sensitivity: 130,
         input: (
-            method: Fifo,
-            source: "/tmp/mpd.fifo",
-            sample_rate: 44100,
-            channels: 2,
-            samble_bits: 16,
+            method: Pulse, // Tells it to use system audio instead of MPD
+            source: "auto", 
         ),
         smoothing: (
             noise_reduction: 25,
@@ -44,16 +42,61 @@
             waves: false,
         ),
     ),
-
-    // Basic Global Keybinds
+// Basic Global Keybinds
     keybinds: (
-        global: {
-            "q": Quit,
-            "~": ShowHelp,
-            "O": ShowOutputs,
-            "I": ShowCurrentSongInfo,
-            "<C-p>": ShowDecoders,
-            ":": CommandMode,
-        },
-    )
+      global: {
+          "q": Quit,
+          "~": ShowHelp,
+          "O": ShowOutputs,
+          "I": ShowCurrentSongInfo,
+          "<C-p>": ShowDecoders,
+          ":": CommandMode,
+          "4": SwitchToTab("Albums"),
+          "5": SwitchToTab("Playlists"),
+          "6": SwitchToTab("Search"),
+      },
+    ),
+
+    // --- NEW: UI TABS & LAYOUT CONFIGURATION ---
+    tabs: [
+        (
+            name: "Queue",
+            pane: Split(
+                direction: Horizontal,
+                panes: [
+                    // Left Half (50% Width): Queue
+                    (
+                        size: "50%",
+                        pane: Pane(Queue),
+                    ),
+                    // Right Half (50% Width): Split Vertically
+                    (
+                        size: "50%",
+                        pane: Split(
+                            direction: Vertical,
+                            panes: [
+                                // Upper Right (80% Height): Album Art
+                                (
+                                    size: "80%",
+                                    pane: Pane(AlbumArt),
+                                ),
+                                // Lower Right (20% Height): Cava Panel
+                                (
+                                    size: "20%",
+                                    borders: "TOP",
+                                    pane: Pane(Cava),
+                                ),
+                            ]
+                        )
+                    ),
+                ]
+            )
+        ),
+        // Keep your other default tabs accessible
+        (name: "Directories", pane: Pane(Directories)),
+        (name: "Artists", pane: Pane(Artists)),
+        (name: "Albums", pane: Pane(Albums)),
+        (name: "Playlists", pane: Pane(Playlists)),
+        (name: "Search", pane: Pane(Search)),
+    ]
 )

@@ -12,8 +12,6 @@
     "clock",
     "custom/voxtype",
     "custom/screenrecording-indicator",
-    "idle_inhibitor",
-    "custom/weather",
     "custom/updatespacman",
     "custom/update",
     "mpris" 
@@ -23,8 +21,10 @@
   ],
   "modules-right": [ 
     "group/tray-expander",
+    "custom/weather",
     "backlight", 
     "network",
+    "idle_inhibitor",
     "pulseaudio#output",
     "memory",
     "cpu",
