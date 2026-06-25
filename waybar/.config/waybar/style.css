@@ -84,6 +84,7 @@ margin: 0 5.5px;
 #clock,
 #mpris,
 #custom-weather,
+#custom-pomodoro,
 #custom-voxtype,
 #custom-voxtype.recording,
 #custom-voxtype.transcribing,
@@ -214,6 +215,7 @@ opacity: 0.7;
 #memory,
 #cpu,
 #clock,
+#custom-pomodoro,
 #custom-brightness{
   min-width: 12px;
   margin-left: 5px;
@@ -235,48 +237,31 @@ opacity: 0.7;
   
 }
 
+#custom-pomodoro{
+  color: #aaa
+}
 
 
-/* ---------------------------------------------------
-   Targeting the main popup container
---------------------------------------------------- */
 menu {
     font-family: "JetBrains Mono Nerd Font", monospace; 
     font-weight: bold;
     background-color: #000; 
-    
-    /* Text color for unselected items */
     color: #ffffff; 
-    
-    /* Slightly rounded corners at the bottom */
     border-radius: 12px; 
-    
-    /* Optional: adds a subtle border to separate it from the background */
     border: 1px solid #fff; 
-    
-    /* Match your bar's font */
     font-size: 14px;
 }
 
-/* ---------------------------------------------------
-   Targeting the individual items inside the menu
---------------------------------------------------- */
 menuitem {
-    /* Spacing around the text "Show Spotify" and "Exit" */
     padding: 6px 12px; 
     transition: background-color 0.2s ease;
     border-radius: 12px; 
     border: 1px solid alpha(#fff, 0.1);
 }
 
-/* ---------------------------------------------------
-   Targeting the highlighted/hover state
---------------------------------------------------- */
 menuitem:hover,
 menuitem:selected {
-    /* The vibrant blue highlight background */
     background-color: alpha(#6fb2bb, 0.5); 
     border-radius: 12px; 
-    /* Ensure the text remains white on hover */
     color: #ffffff; 
 }

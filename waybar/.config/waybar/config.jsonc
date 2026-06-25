@@ -14,7 +14,8 @@
     "custom/screenrecording-indicator",
     "custom/updatespacman",
     "custom/update",
-    "mpris" 
+    "custom/pomodoro",
+    "mpris"
   ],
   "modules-center": [
     "hyprland/workspaces"
@@ -309,10 +310,16 @@
   },
   "custom/expand-icon": {
     "format": "",
-    "tooltip": false,
-    "on-scroll-up": "",
-    "on-scroll-down": "",
-    "on-scroll-left": "",
-    "on-scroll-right": ""
+    "tooltip": false
+  },
+  "custom/pomodoro": {
+    "format": "{}",
+    "return-type": "json",
+    "interval": 1,
+    "exec": "~/.config/waybar/scripts/pomodoro.sh",
+    "on-click": "~/.config/waybar/scripts/pomodoro.sh toggle",
+    "on-click-right": "~/.config/waybar/scripts/pomodoro.sh stop",
+    "on-click-middle": "~/.config/waybar/scripts/pomodoro.sh config",
+    "tooltip": true
   }
 }

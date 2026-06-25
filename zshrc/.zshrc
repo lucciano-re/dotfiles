@@ -52,7 +52,6 @@ alias se="rg -S -. -C 2"  #search whith rip grep
 alias drives='lsblk' #shortcut
 
 alias spotdl='spotify-dl -t 4' #default 4 parrallel downloads 
-
 # Git Aliases
 alias gpush="git push"
 alias gpull="git pull --prune"
