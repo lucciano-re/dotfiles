@@ -18,7 +18,7 @@
     "break",
     {
       "type": "custom",
-      "format": "\u001b[90m┌──────────────────────Hardware──────────────────────┐"
+      "format": "\u001b[90m┌──────Hardware───────────┐"
     },
     {
       "type": "host",
@@ -35,7 +35,7 @@
       "type": "gpu",
       "key": "│ ├",
       "detectionMethod": "pci",
-      "keyColor": "green"
+     "keyColor": "green"
     },
     {
       "type": "display",
@@ -59,12 +59,12 @@
     },
     {
       "type": "custom",
-      "format": "\u001b[90m└────────────────────────────────────────────────────┘"
+      "format": "\u001b[90m└─────────────────────────┘"
     },
     "break",
     {
       "type": "custom",
-      "format": "\u001b[90m┌──────────────────────Software──────────────────────┐"
+      "format": "\u001b[90m┌──────Software───────────┐"
     },
     {
       "type": "command",
@@ -127,12 +127,12 @@
     },
     {
       "type": "custom",
-      "format": "\u001b[90m└────────────────────────────────────────────────────┘"
+      "format": "\u001b[90m└─────────────────────────┘"
     },
     "break",
     {
       "type": "custom",
-      "format": "\u001b[90m┌────────────────Age / Uptime / Update───────────────┐"
+      "format": "\u001b[90m┌──Age / Uptime / Update──┐"
     },
     {
       "type": "command",
@@ -153,7 +153,7 @@
     },
     {
       "type": "custom",
-      "format": "\u001b[90m└────────────────────────────────────────────────────┘"
+      "format": "\u001b[90m└─────────────────────────┘"
     },
     "break"
   ]
