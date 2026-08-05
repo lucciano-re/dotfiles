@@ -7,8 +7,8 @@ STATE_FILE="/tmp/waybar_pomodoro_state"
 CONFIG_FILE="/tmp/waybar_pomodoro_config"
 
 # Default times (in seconds)
-DEFAULT_WORK=1500  # 25 mins
-DEFAULT_BREAK=300   # 5 mins
+DEFAULT_WORK=2400  # 40 mins
+DEFAULT_BREAK=600   # 10 mins
 
 # Load user configuration or set defaults
 if [ -f "$CONFIG_FILE" ]; then
@@ -109,7 +109,7 @@ time_str=$(format_time "$remaining")
 if [ "$state" == "work" ]; then
     echo "{\"text\": \"󱎫 $time_str\", \"class\": \"work\", \"tooltip\": \"Focusing...\"}"
 elif [ "$state" == "break" ]; then
-    echo "{\"text\": \"󱞪 $time_str\", \"class\": \"break\", \"tooltip\": \"On a Break\"}"
+    echo "{\"text\": \"󰒲 $time_str\", \"class\": \"break\", \"tooltip\": \"On a Break\"}"
 else
     echo "{\"text\": \"󱎭\", \"class\": \"stopped\", \"tooltip\": \"L-Click: Start\\nR-Click: Stop\\nM-Click: Settings\"}"
 fi

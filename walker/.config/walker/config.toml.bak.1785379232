@@ -2,7 +2,7 @@ force_keyboard_focus = true                                                 # fo
 selection_wrap = true                                                       # wrap list if at bottom or top
 theme = "omarchy-default"                                                   # theme to use
 additional_theme_location = "~/.local/share/omarchy/default/walker/themes/"
-hide_action_hints = true                                                    # globally hide the action hints
+hide_action_hints = true                                                 # globally hide the action hints
 
 [placeholders]
 "default" = { input = " Search...", list = "No Results" } # placeholders for input and empty list, key is the providers name, so f.e. "desktopapplications" or "menus:other"
@@ -17,7 +17,8 @@ symbols = 1 # providers to be queried by default
 max_results = 256 # 256 should be enough for everyone
 default = [
   "desktopapplications",
-  "websearch",
+  "websearch", 
+  "windows"
 ]
 
 [[providers.prefixes]]
@@ -47,3 +48,26 @@ provider = "clipboard"
 [[emergencies]]
 text = "Restart Walker"
 command = "omarchy-restart-walker"
+
+[app_launch]
+ignore = [
+    "libreoffice-base",
+    "libreoffice-calc",
+    "libreoffice-draw",
+    "libreoffice-impress",
+    "libreoffice-math",
+    "libreoffice-writer",
+    "libreoffice-xsltfilter"
+]
+
+
+
+
+  
+# Try this specific naming
+[[module]]
+name = "windows"
+prefix = "w "
+
+[builtin.windows] # Note the singular 'builtin' in some builds
+show_preview = true
