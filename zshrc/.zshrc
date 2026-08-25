@@ -40,13 +40,12 @@ alias la="eza -lah --icons --git"
 alias cat="bat" #change cat for more modern and advanced
 alias mkd="mkdir -p" #shortcut
 alias cl="clear" #shortcut
-alias cd="z" #change for feature rich and modern
 alias find="fd -H" #change for feature rich and modern
 alias fzf="fzf --preview 'bat --style=numbers --color=always {}'" #launch fuzzy finder
 alias fuck="sudo pacman -Rs" #uninstall
 alias install="sudo pacman -S"
 alias audio="alsamixer" #shortcut
-alias nvzsh="nv dotfiles/zshrc/.zshrc" # Updated this to point to zshrc
+alias nvzsh="nv ~/.dotfiles/zshrc/.zshrc" # Updated this to point to zshrc
 alias se="rg -S -. -C 2"  #search whith rip grep
 
 alias drives='lsblk' #shortcut
