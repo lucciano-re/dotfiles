@@ -1,6 +1,3 @@
-# If not running interactively, don't do anything (leave this at the top of this file)
-[[ $- != *i* ]] && return
-
 # All the default Omarchy aliases and functions
 # (don't mess with these directly, just overwrite them here!)
 # /etc/omarchy.conf is written by omarchy-dev-link. When absent, force the
@@ -47,12 +44,13 @@ alias cat="bat"
 alias -- -='cd -'
 alias mkd="mkdir -p"
 alias cl="clear"
-alias cd="z"
 alias find="fd -H"
 alias fzf="fzf --preview 'bat --style=numbers --color=always {}'"
 alias fuck="sudo pacman -Rs"
 alias audio="alsamixer"
 alias nvbash="nv dotfiles/bashrc/.bashrc"
+
+echo "bash putita"
 
 alias arduino-ide='arduino-ide --no-sandbox --disable-gpu --ozone-platform=x11'
 

@@ -1,4 +1,4 @@
-# If not running interactively, don't do anything (leave this at the top of this file)
+#If not running interactively, don't do anything (leave this at the top of this file)
 [[ -o interactive ]] || return
 
 # All the default Omarchy aliases and functions
@@ -30,7 +30,7 @@ function y() {
 # convenient aliases
 alias diff="diff --color=auto" #color diff default
 alias del="rm -ri" #recursive(child directories) interactive(confirmation)
-alias mv="mv -i" #interactive(confirm overwrite)
+alias mov="mv -i" #interactive(confirm overwrite)
 alias nv="nvim" #shortcut
 alias df='df -h' #disc space human readable
 alias free='free -m' #ram
@@ -63,5 +63,7 @@ eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 
 export PATH=$PATH:/home/lucho/.spicetify
+
+
 
 fastfetch
