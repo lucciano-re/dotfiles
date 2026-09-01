@@ -1,4 +1,4 @@
-#If not running interactively, don't do anything (leave this at the top of this file)
+# If not running interactively, don't do anything (leave this at the top of this file)
 [[ -o interactive ]] || return
 
 # All the default Omarchy aliases and functions
@@ -30,7 +30,7 @@ function y() {
 # convenient aliases
 alias diff="diff --color=auto" #color diff default
 alias del="rm -ri" #recursive(child directories) interactive(confirmation)
-alias mov="mv -i" #interactive(confirm overwrite)
+alias mv="mv -i" #interactive(confirm overwrite)
 alias nv="nvim" #shortcut
 alias df='df -h' #disc space human readable
 alias free='free -m' #ram
@@ -40,12 +40,13 @@ alias la="eza -lah --icons --git"
 alias cat="bat" #change cat for more modern and advanced
 alias mkd="mkdir -p" #shortcut
 alias cl="clear" #shortcut
+alias cd="z" #change for feature rich and modern
 alias find="fd -H" #change for feature rich and modern
 alias fzf="fzf --preview 'bat --style=numbers --color=always {}'" #launch fuzzy finder
 alias fuck="sudo pacman -Rs" #uninstall
 alias install="sudo pacman -S"
 alias audio="alsamixer" #shortcut
-alias nvzsh="nv ~/.dotfiles/zshrc/.zshrc" # Updated this to point to zshrc
+alias nvzsh="nv ~/dotfiles/zshrc/.zshrc" # Updated this to point to zshrc
 alias se="rg -S -. -C 2"  #search whith rip grep
 
 alias drives='lsblk' #shortcut
@@ -63,7 +64,5 @@ eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 
 export PATH=$PATH:/home/lucho/.spicetify
-
-
 
 fastfetch
